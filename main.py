@@ -1,4 +1,4 @@
-import time
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -7,6 +7,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import os
 import pandas as pd
+import sys
+import time
+
+app_path = os.path.dirname(sys.executable)
+
+now = datetime.now()
+month_day_year = now.strftime("%m%d%y")
 
 options = Options()
 options.add_argument("--start-maximized")
@@ -61,4 +68,4 @@ for idx, link in enumerate(links):
 my_dict = {"Event": event, "match_title": title, "matches": match}
 print(my_dict)
 df = pd.DataFrame(my_dict)
-df.to_json("temp.json", orient='records', lines=True)
+df.to_json(f"{month_day_year}.json", orient='records', lines=True)
