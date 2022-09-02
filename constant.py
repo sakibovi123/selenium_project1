@@ -1,0 +1,1 @@
+EVENTS_URL = "https://www.cagematch.net/?id=1&view=cards&year=2022&Day=&Month=&Year=2022&name=&promotion=1&showtype=Pay+Per+View"
